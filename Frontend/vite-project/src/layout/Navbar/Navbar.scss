@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none  ;
+}
+.UserNavbar{
+    background-color: black;
+    border-bottom: 1px solid red;
+    .UserNavbar_container{
+        display: flex;
+        margin-left: 20px;
+        margin-right: 20px;
+        justify-content: space-between;
+        height: 100px;
+        .UserNavbar_container_h1{
+            color: white;
+            font-size: 52px;
+            display: flex;
+            align-items: center;
+        }.visible_ul{
+              display: flex;
+              align-items: center;
+              
+            .UserNavbar_container_ul{
+                display: flex;
+                li{
+                    padding-left: 20px;
+                    .visible_ul_a{
+                        color: white;
+                        font-size: 26px;
+                        &:hover{
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .button_container{
+            
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+            .UserNavbar_container_button{
+                background-color: black;
+                color: gray;
+                border: 1px solid gray;
+                height: 30px;
+                width: 30px;
+                border-radius: 6px;
+               display: none;
+                i{
+                    font-size: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.hidden__ul{
+    display: none;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+   
+    ul{
+    
+        text-align: center;
+        li{
+           border: 1px solid gray;
+           height: 30px;
+           display: flex;
+       justify-content: center;
+       align-items: center;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+.active{
+    display: block;
+}
+.UserNavbar_container_button{
+    display: none;
+}
+@media screen and (max-width: 992px) {
+    .nav__container{
+      position: relative;
+      background-color: white;
+    }
+    .active{
+        display: block;
+      }
+     
+        .visible_ul {
+          display: none,
+        }
+        .UserNavbar_container_ul{
+            display: none !important;
+        }
+        .UserNavbar_container_h1{
+            font-size: 34px !important;
+        }
+        .button_container{
+            .UserNavbar_container_button{
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+       
+    }
