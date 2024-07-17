@@ -1,0 +1,50 @@
+.Watchlist{
+    width: 100%;
+    min-height: 500px;
+   background-color: black;
+   .Watchlist_container{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+            margin-top: 40px;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 70px;
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: red;
+    }
+    .Watchlist_boxs{
+        display: flex;
+        justify-content: center;
+        .Watchlist_box{
+            max-width: 200px;
+            margin-left: 20px;
+            img{
+              
+                width: 200px;
+                height: 200px;
+            }
+            div{
+                font-size: 16px;
+                color: white;
+            }
+            button{
+                width: 60px;
+          height: 30px;
+          background-color:  white;
+          color: red;
+          border: 0.3px solid red;
+          border-radius: 4px;
+          &:hover{
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            
+         }
+            }
+        }
+    }
+   }
+}

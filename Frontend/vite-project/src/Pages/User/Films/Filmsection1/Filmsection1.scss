@@ -1,0 +1,76 @@
+.Filmsection1 {
+  min-height: 1570px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  .Filmsection1_container {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    .Filmsection1_container_h1 {
+      font-style: italic;
+      font-weight: 700;
+      font-size: 70px;
+      color: white;
+      text-decoration: underline;
+      text-decoration-color: red;
+      display: flex;
+      justify-content: center;
+    }
+    .Filmsection1_container_inp {
+        margin-top: 30px;
+      background-color: black;
+      border: none;
+      border-bottom: 1px solid white;
+      width: 180px;
+      outline: none;
+      display: flex;
+      justify-content: center;
+      color: red;
+      &:focus {
+        border-bottom: 1px solid red;
+      }
+    }
+    .Filmsection1_div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      flex-wrap: wrap;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      .Filmsection1_div_card {
+        width: 400px;
+        margin-top: 30px;
+        .Filmsection1_div_card_img {
+          width: 200px;
+          height: 200px;
+        }
+        .Filmsection1_div_card_div {
+          font-size: 16px;
+          color: white;
+          font-size: 500;
+
+        }
+        .Filmsection_div_card_btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: red;
+            border: none;
+            color: white;
+            margin-top: 12px;
+            width: 150px;
+            height: 30px;
+            border-radius: 6px;
+
+
+        }
+      }
+    }
+  }
+}

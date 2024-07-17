@@ -1,0 +1,39 @@
+.Detailsection1 {
+  min-height: 800px;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .Detailsection1_container {
+    display: flex;
+    justify-content: center;
+    border: 2px solid red;
+    border-radius: 6px;
+    max-width: 1300px;
+    min-height: 300px;
+    .Detailsection_img {
+      height: 300px;
+    }
+    .Detailsection1_div {
+      padding-left: 30px;
+      display: flex;
+      flex-direction: column;
+
+      .Detailsection1_name {
+        font-size: 32px;
+        color: white;
+        padding-top: 12px;
+        padding-bottom: 25px;
+      }
+      .Detailsection1_description {
+        color: white;
+        font-size: 22px;
+      }
+    }
+  }
+  .video-responsive{
+    padding-top: 60px;
+  }
+}

@@ -46,54 +46,48 @@ function Recommendation_Robot() {
       <div className="Recommendation_robot_container">
         <h1 className="Recommendation_Robot_h1">movie recommendation robot</h1>
         <div>
+          <div>
+            <label className="Recommendation_Robot_label">
+              Choose Category:
+            </label>
+            <select value={choosenCategory} onChange={handleKategoriChange}>
+              <option value="">-- Choose--</option>
+              {category.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="Recommendation_Robot_label">Choose Year:</label>
+            <select value={Choosenyear} onChange={handleYilChange}>
+              <option value="">-- Choose --</option>
+              {years.map((year, index) => (
+                <option key={index} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <button
+          className="Recommendation_Robot_btn"
+          onClick={handleTavsiyeGetir}
+        >
+          Bring recommendations
+        </button>
 
         <div>
-          <label>Choose Category:</label>
-          <select value={choosenCategory} onChange={handleKategoriChange}>
-            <option value="">-- Choose--</option>
-            {category.map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Choose Year:</label>
-          <select value={Choosenyear} onChange={handleYilChange}>
-            <option value="">-- Choose --</option>
-            {years.map((year, index) => (
-              <option key={index} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
-        </div>
-        </div>
-        <button onClick={handleTavsiyeGetir}>Bring recommendations</button>
-
-        <div>
-          <h2>Recommended movies</h2>
-          <ul>
+          <h2 className="Recommendation_Robot_h2">Recommended movies</h2>
+          <div className="Recommendation_div">
             {tavsiyeFilmler.map((film, index) => (
-              <li key={index}>
+              <div className="Recommendation_box" key={index}>
+                <img className="Recommendation_img" src={film.imgUrl}></img>
                 <h3>{film.name}</h3>
-                <img src={film.imgUrl}></img>
-                <p>{film.description}</p>
-                <div className="video-responsive">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={`https://www.youtube.com/embed/${film.videoUrl}`}
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                {/* Diğer film detayları buraya eklenir */}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

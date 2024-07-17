@@ -4,3 +4,22 @@
   list-style: none;
   text-decoration: none;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  height: 20px;
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 4px;
+}

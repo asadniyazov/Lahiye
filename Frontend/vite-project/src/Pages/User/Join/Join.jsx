@@ -1,8 +1,12 @@
 import React from 'react'
+import Joinsection1 from './Joinsection/Joinsection1'
+
 
 function Join() {
   return (
-    <div>Join</div>
+   <>
+   <Joinsection1></Joinsection1>
+   </>
   )
 }
 

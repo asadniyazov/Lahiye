@@ -3,12 +3,18 @@ import  express from 'express'
 import cors from "cors"
 import  bodyParser from 'body-parser'
 import 'dotenv/config'
+import  nodemailer from 'nodemailer'
+import { usersRouter } from './Routers/UserRoute.js'
+import { authRouter } from './Routers/AuthRouter.js'
+
 const app = express();
 
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/users',usersRouter);
+app.use('/',authRouter)
 
 
 const filmSchema = new mongoose.Schema({
@@ -17,11 +23,40 @@ const filmSchema = new mongoose.Schema({
     category: { type: String, required: true },
     imgUrl: String,
     videoUrl: String,
-    description: String
+    description: String,
+    rating:Number
   });
   
   const FilmModel = mongoose.model('Film', filmSchema);
+  app.get('/films', async (req, res) => {
+    const films= await FilmModel.find()
+    res.send(films)
+  })
+
+  app.get('/films/:id', async (req, res) => {
+    const {id}=req.params
+    const films= await FilmModel.findById(id) 
+    res.send(films)
+  })
   
+  
+  app.get('/film10', async (req, res) => {
+    try {
+      const films = await FilmModel.find({ rating: 10 }); // Rating'i 10 olan filmleri getir
+      res.json(films);
+    } catch (error) {
+      console.error('Error fetching films:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+
+
+  app.delete('/films/:id', async (req, res) => {
+    const {id}=req.params
+    const film= await FilmModel.findByIdAndDelete(id) 
+    res.send({message:"delete olundu"})
+  })
+
   
   app.get('/api/kategoriler', async (req, res) => {
       try {
@@ -77,9 +112,45 @@ const filmSchema = new mongoose.Schema({
             res.status(500).json({ error: 'Server hatası' });
         }})
         
+        app.post('/api/send-email', async (req, res) => {
+            const { name, email, message } = req.body;
+          
+            try {
+              // E-posta gönderme işlemi
+              let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                  user: 'bd5scjwr5@code.edu.az', // gönderici e-posta adresi
+                  pass: 'esed2004' // gönderici e-posta şifresi
+                }
+              });
+          
+              let info = await transporter.sendMail({
+                from: 'bd5scjwr5@code.edu.az', // gönderici e-posta adresi
+                to: 'bd5scjwr5@code.edu.az', // hedef e-posta adresi
+                subject: 'New message from contact form',
+                text: `
+                  Name: ${name}
+                  Email: ${email}
+                  Message: ${message}
+                `
+              });
+          
+              console.log('Message sent: %s', info.messageId);
+              res.json({ success: true, message: 'Email sent successfully' });
+            } catch (error) {
+              console.error('Error sending email:', error);
+              res.status(500).json({ success: false, message: 'Failed to send email' });
+            }
+          });
+
+
         app.listen(process.env.Port, () => {
             console.log(`Sunucu ${process.env.Port} portunda çalışıyor.`);
-        });
+        });    
+
+
+
 
 mongoose.connect(process.env.Mongodb_Connection, {
 }).then(() => {

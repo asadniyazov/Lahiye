@@ -1,8 +1,10 @@
 import React from 'react'
+import Filmsection1 from './Filmsection1/Filmsection1'
 
 function Films() {
   return (
-    <div>Films</div>
+   <>
+   <Filmsection1></Filmsection1></>
   )
 }
 

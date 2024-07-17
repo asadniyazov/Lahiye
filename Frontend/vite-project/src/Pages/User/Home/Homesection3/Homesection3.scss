@@ -1,0 +1,52 @@
+.Homesection3 {
+  background-color: black;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Homesection3_container {
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+    border: 2px solid red;
+    border-radius: 3px;
+    max-width: 1300px;
+    width: 100%;
+    .Homesection3_container_div {
+      padding-left: 40px;
+    
+      justify-content: center;
+      
+
+      .Homesection3_container_div_h1 {
+        margin-top: 34px;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 70px;
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: red;
+      }
+      .Homesection3_container_div_div {
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-weight: 500;
+      }
+      .Homesection3_container_btn {
+        background-color: red;
+        color: white;
+        font-size: 22px;
+        display: flex;
+        width: 100px;
+        height: 30px;
+        margin-top: 120px;
+        justify-content: center;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+  }
+}
